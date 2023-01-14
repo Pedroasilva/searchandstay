@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -31,7 +27,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'jwt.auth',
     'prefix' => 'books'
 ], function ($router) {
     Route::get('/',[BookController::class, 'index'])->name('books');
