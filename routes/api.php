@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,9 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'books'
 ], function ($router) {
-    Route::get('/',[BookController::class, 'index'])->name('index');
-    Route::post('/',[BookController::class, 'store'])->name('store');
-    Route::get('/{book}',[BookController::class, 'show'])->name('show');
-    Route::put('/{book}',[BookController::class, 'update'])->name('update');
-    Route::delete('/{book}',[BookController::class, 'destroy'])->name('destroy');
+    Route::get('/',[BookController::class, 'index'])->name('books');
+    Route::post('/',[BookController::class, 'store'])->name('storeBook');
+    Route::get('/{book}',[BookController::class, 'show'])->name('showBook');
+    Route::put('/{book}',[BookController::class, 'update'])->name('updateBook');
+    Route::delete('/{book}',[BookController::class, 'destroy'])->name('destroyBook');
 });
