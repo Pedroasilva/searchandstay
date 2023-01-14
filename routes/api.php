@@ -28,3 +28,14 @@ Route::group([
     Route::post('/refresh',[AuthController::class, 'refresh'])->name('refresh');
     Route::post('/me',[AuthController::class, 'me'])->name('me');
 });
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'books'
+], function ($router) {
+    Route::get('/',[BookController::class, 'index'])->name('index');
+    Route::post('/',[BookController::class, 'store'])->name('store');
+    Route::get('/{book}',[BookController::class, 'show'])->name('show');
+    Route::put('/{book}',[BookController::class, 'update'])->name('update');
+    Route::delete('/{book}',[BookController::class, 'destroy'])->name('destroy');
+});
