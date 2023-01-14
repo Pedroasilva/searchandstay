@@ -2,7 +2,7 @@
 
 <br>
 
-## 🛠️ Guia de instalação 
+## 🛠️ Instalation Guide
 
 Install apache2
 
